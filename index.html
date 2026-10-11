@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Professional portfolio of Ratandi Dravin Nyagechi — University of Eldoret student, lifelong learner and future-focused professional.">
+
+    <title>Ratandi Dravin Nyagechi | Professional Portfolio</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =====================================================
+           GLOBAL VARIABLES
+        ===================================================== */
+
+        :root {
+            --navy: #0b1220;
+            --navy-light: #111c30;
+            --charcoal: #171c25;
+            --off-white: #f6f7f9;
+            --white: #ffffff;
+            --teal: #16b8a6;
+            --teal-dark: #0d8f82;
+            --gold: #d8ad55;
+            --gray: #687386;
+            --light-gray: #e7eaf0;
+            --shadow: 0 15px 40px rgba(11, 18, 32, 0.10);
+
+            --transition: all 0.3s ease;
+        }
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--off-white);
+            color: var(--navy);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: min(1150px, 90%);
+            margin: auto;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin-bottom: 55px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--teal-dark);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .section-label::before {
+            content: "";
+            width: 35px;
+            height: 2px;
+            background: var(--teal);
+        }
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        .section-description {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 14px 24px;
+            border-radius: 7px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--teal);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--teal-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(22, 184, 166, 0.25);
+        }
+
+        .btn-outline {
+            border-color: rgba(255,255,255,0.35);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--navy);
+        }
+
+        /* =====================================================
+           PRELOADER
+        ===================================================== */
+
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 45px;
+            height: 45px;
+            border: 3px solid rgba(255,255,255,0.2);
+            border-top-color: var(--teal);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background: rgba(11,18,32,0.96);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        }
+
+        .nav {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .logo span {
+            color: var(--teal);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.78);
+            font-size: 0.83rem;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 2px;
+            background: var(--teal);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 80% 30%, rgba(22,184,166,0.14), transparent 28%),
+                linear-gradient(135deg, #080e19, #111c30 60%, #0b1220);
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 50%;
+            right: -150px;
+            top: 100px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .hero-content {
+            padding-top: 60px;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 14px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50px;
+            color: #cbd4e2;
+            font-size: 0.78rem;
+            margin-bottom: 25px;
+        }
+
+        .hero-tag span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--teal);
+            box-shadow: 0 0 12px var(--teal);
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(3rem, 7vw, 5.7rem);
+            line-height: 0.98;
+            margin-bottom: 25px;
+            max-width: 800px;
+        }
+
+        .hero h1 span {
+            color: var(--teal);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #c6cfdd;
+            max-width: 650px;
+            margin-bottom: 18px;
+        }
+
+        .hero-description {
+            max-width: 630px;
+            color: #929daf;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .hero-card {
+            position: relative;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 370px;
+            border: 1px solid rgba(22,184,166,0.4);
+            transform: rotate(6deg);
+            border-radius: 18px;
+        }
+
+        .profile-placeholder {
+            width: 275px;
+            height: 345px;
+            background: linear-gradient(145deg, #1c2a40, #101927);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+        }
+
+        .profile-placeholder::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(145deg, transparent, rgba(22,184,166,0.12));
+        }
+
+        .profile-placeholder-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-initials {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto auto 20px;
+            font-family: "Playfair Display", serif;
+            font-size: 2rem;
+            color: var(--teal);
+        }
+
+        .profile-placeholder p {
+            color: #b7c1cf;
+            font-size: 0.8rem;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #778294;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
+
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-highlight {
+            background: var(--navy);
+            color: white;
+            border-radius: 18px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-highlight::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(22,184,166,0.1);
+            right: -70px;
+            top: -70px;
+        }
+
+        .about-highlight h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.7rem;
+            margin-bottom: 18px;
+        }
+
+        .about-highlight p {
+            color: #aeb9c9;
+            font-size: 0.92rem;
+        }
+
+        .about-stat {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .stat {
+            border-top: 1px solid rgba(255,255,255,0.12);
+            padding-top: 15px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.4rem;
+            color: var(--teal);
+        }
+
+        .stat small {
+            color: #8995a7;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 18px;
+        }
+
+        .about-quote {
+            border-left: 3px solid var(--teal);
+            padding-left: 20px;
+            margin-top: 28px;
+            font-style: italic;
+            color: var(--navy);
+            font-weight: 500;
+        }
+
+        /* =====================================================
+           SKILLS
+        ===================================================== */
+
+        .skills {
+            background: var(--off-white);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border: 1px solid var(--light-gray);
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow);
+            border-color: rgba(22,184,166,0.3);
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(22,184,166,0.1);
+            color: var(--teal-dark);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 1rem;
+            margin-bottom: 9px;
+        }
+
+        .skill-card p {
+            color: var(--gray);
+            font-size: 0.83rem;
+        }
+
+        /* =====================================================
+           EDUCATION
+        ===================================================== */
+
+        .education {
+            background: white;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--light-gray);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 70px;
+            margin-bottom: 45px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 10px;
+            top: 5px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: white;
+            border: 5px solid var(--teal);
+            z-index: 2;
+        }
+
+        .timeline-year {
+            display: inline-block;
+            color: var(--teal-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item h4 {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .achievement {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 6px 12px;
+            background: rgba(22,184,166,0.08);
+            color: var(--teal-dark);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* =====================================================
+           EXPERIENCE
+        ===================================================== */
+
+        .experience {
+            background: var(--navy);
+            color: white;
+        }
+
+        .experience .section-label {
+            color: var(--teal);
+        }
+
+        .experience .section-title {
+            color: white;
+        }
+
+        .experience .section-description {
+            color: #9ba8ba;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .experience-card {
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.035);
+            transition: var(--transition);
+        }
+
+        .experience-card:hover {
+            background: rgba(255,255,255,0.07);
+            transform: translateY(-5px);
+        }
+
+        .experience-card span {
+            color: var(--teal);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .experience-card h3 {
+            margin: 12px 0;
+            font-size: 1.1rem;
+        }
+
+        .experience-card p {
+            color: #9ba8ba;
+            font-size: 0.85rem;
+        }
+
+        /* =====================================================
+           PROJECTS
+        ===================================================== */
+
+        .projects {
+            background: var(--off-white);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--light-gray);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+
+        .project-image {
+            height: 180px;
+            background:
+                linear-gradient(135deg, rgba(11,18,32,0.95), rgba(17,28,48,0.8)),
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(22,184,166,0.08) 10px,
+                    rgba(22,184,166,0.08) 11px
+                );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--teal);
+            font-size: 2.5rem;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-tag {
+            color: var(--teal-dark);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .project-content h3 {
+            margin: 8px 0;
+            font-size: 1.1rem;
+        }
+
+        .project-content p {
+            color: var(--gray);
+            font-size: 0.84rem;
+            margin-bottom: 18px;
+        }
+
+        .project-link {
+            color: var(--navy);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .project-link:hover {
+            color: var(--teal-dark);
+        }
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact {
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 60px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+            background: rgba(22,184,166,0.1);
+            color: var(--teal-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9px;
+        }
+
+        .contact-item h4 {
+            font-size: 0.85rem;
+            margin-bottom: 2px;
+        }
+
+        .contact-item p {
+            color: var(--gray);
+            font-size: 0.83rem;
+        }
+
+        .contact-form {
+            background: var(--off-white);
+            padding: 35px;
+            border-radius: 14px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid var(--light-gray);
+            background: white;
+            border-radius: 7px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(22,184,166,0.08);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .form-message {
+            margin-top: 15px;
+            font-size: 0.82rem;
+            color: var(--teal-dark);
+            display: none;
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #070c15;
+            color: white;
+            padding: 35px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-content p {
+            color: #778294;
+            font-size: 0.78rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            font-size: 0.75rem;
+            color: #aeb9c9;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--teal);
+            border-color: var(--teal);
+            color: white;
+        }
+
+        /* =====================================================
+           BACK TO TOP
+        ===================================================== */
+
+        .back-top {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 42px;
+            height: 42px;
+            border: none;
+            border-radius: 50%;
+            background: var(--teal);
+            color: white;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 900;
+        }
+
+        .back-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-top:hover {
+            transform: translateY(-4px);
+            background: var(--teal-dark);
+        }
+
+        /* =====================================================
+           SCROLL ANIMATIONS
+        ===================================================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =====================================================
+           RESPONSIVE DESIGN
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .hero-grid,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .hero-card {
+                min-height: 350px;
+            }
+
+            .skills-grid,
+            .experience-grid,
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--navy);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 25px 5%;
+                gap: 20px;
+                transform: translateY(-150%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .skills-grid,
+            .experience-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3.3rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section {
+                padding: 75px 0;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            .hero h1 {
+                font-size: 2.7rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .profile-placeholder {
+                width: 240px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         PRELOADER
+    ====================================================== -->
+
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <header id="header">
+
+        <div class="container nav">
+
+            <a href="#home" class="logo">
+                RATANDI<span>.</span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HOME
+    ====================================================== -->
+
+    <section class="hero" id="home">
+
+        <div class="container hero-grid">
+
+            <div class="hero-content reveal">
+
+                <div class="hero-tag">
+                    <span></span>
+                    University of Eldoret Student
+                </div>
+
+                <h1>
+                    Ratandi Dravin
+                    <span>Nyagechi.</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Driven by Experience. Empowered by Education.
+                    Focused on the Future.
+                </p>
+
+                <p class="hero-description">
+                    A mature and determined university student committed to
+                    continuous learning, personal development, and building a
+                    meaningful future through education and experience.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#about" class="btn btn-primary">
+                        Explore My Journey →
+                    </a>
+
+                    <a href="#contact" class="btn btn-outline">
+                        Contact Me
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-card reveal">
+
+                <!--
+                    TO ADD A PROFILE PHOTO:
+
+                    Replace this entire profile-placeholder div
+                    with:
+
+                    <img src="images/ratandi.jpg"
+                         alt="Ratandi Dravin Nyagechi"
+                         class="profile-photo">
+
+                    Then add the corresponding CSS.
+                -->
+
+                <div class="profile-placeholder">
+
+                    <div class="profile-placeholder-content">
+
+                        <div class="profile-initials">
+                            RN
+                        </div>
+
+                        <p>
+                            RATANDI DRAVIN<br>
+                            NYAGECHI
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="scroll-indicator">
+            Scroll to explore
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section class="section about" id="about">
+
+        <div class="container">
+
+            <div class="section-header reveal">
+
+                <div class="section-label">
+                    About Me
+                </div>
+
+                <h2 class="section-title">
+                    Experience meets education.
+                </h2>
+
+                <p class="section-description">
+                    A journey shaped by academic excellence, maturity,
+                    resilience and a commitment to lifelong learning.
+                </p>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="about-highlight reveal">
+
+                    <h3>
+                        A Different Perspective.
+                    </h3>
+
+                    <p>
+                        Being a mature student is not a limitation. It is a
+                        perspective shaped by experience, responsibility,
+                        determination and an appreciation for the value of
+                        education.
+                    </p>
+
+                    <div class="about-stat">
+
+                        <div class="stat">
+                            <strong>374</strong>
+                            <small>KCPE Marks</small>
+                        </div>
+
+                        <div class="stat">
+                            <strong>B+</strong>
+                            <small>KCSE Grade</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-text reveal">
+
+                    <p>
+                        My name is <strong>Ratandi Dravin Nyagechi</strong>,
+                        a university student at the
+                        <strong>University of Eldoret</strong> whose journey
+                        reflects determination, academic capability and a
+                        commitment to continuous personal development.
+                    </p>
+
+                    <p>
+                        My academic foundation began at
+                        <strong>Tonga Omonuri Primary School</strong>, where
+                        I achieved <strong>374 marks in the KCPE</strong>.
+                        I later continued my secondary education at
+                        <strong>Moi High School Gesusu</strong>, achieving a
+                        <strong>B+ in the KCSE</strong>.
+                    </p>
+
+                    <p>
+                        Today, as a mature student at the University of Eldoret,
+                        I bring a perspective shaped not only by academic
+                        learning but also by maturity and life experience.
+                        This journey has strengthened my appreciation for
+                        discipline, resilience, responsibility and lifelong
+                        learning.
+                    </p>
+
+                    <p>
+                        I am focused on developing my knowledge, strengthening
+                        my abilities and creating opportunities that allow me
+                        to contribute meaningfully to the future.
+                    </p>
+
+                    <div class="about-quote">
+                        "The journey may take different paths, but the
+                        determination to keep learning creates the destination."
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SKILLS
+    ====================================================== -->
+
+    <section class="section skills" id="skills">
+
+        <div class="container">
+
+            <div class="section-header reveal">
+
+                <div class="section-label">
+                    Skills
+                </div>
+
+                <h2 class="section-title">
+                    Strengths that shape my journey.
+                </h2>
+
+                <p class="section-description">
+                    Transferable capabilities developed through education,
+                    personal growth and life experience.
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon">01</div>
+                    <h3>Analytical Thinking</h3>
+                    <p>
+                        Ability to examine information carefully, identify
+                        patterns and approach challenges logically.
+                    </p>
+                </div>
+
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon">02</div>
+                    <h3>Problem Solving</h3>
+                    <p>
+                        A structured approach to understanding challenges
+                        and developing practical solutions.
+                    </p>
+                </div>
+
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon">03</div>
+                    <h3>Resilience</h3>
+                    <p>
+                        Persistence and determination when working toward
+                        long-term personal and academic goals.
+                    </p>
+                </div>
+
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon">04</div>
+                    <h3>Time Management</h3>
+                    <p>
+                        Ability to organize priorities and remain focused
+                        on important responsibilities.
+                    </p>
+                </div>
+
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon">05</div>
+                    <h3>Communication</h3>
+                    <p>
+                        Developing the ability to communicate ideas clearly,
+                        respectfully and effectively.
+                    </p>
+                </div>
+
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon">06</div>
+                    <h3>Continuous Learning</h3>
+                    <p>
+                        A commitment to acquiring new knowledge and improving
+                        capabilities throughout the learning journey.
+                    </p>
+                </div>
+
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon">07</div>
+                    <h3>Adaptability</h3>
+                    <p>
+                        Ability to adjust to changing environments and
+                        approach new situations with an open mind.
+                    </p>
+                </div>
+
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon">08</div>
+                    <h3>Responsibility</h3>
+                    <p>
+                        A mature approach to commitments, responsibilities
+                        and long-term objectives.
+                    </p>
+                </div>
+
+
+                <div class="skill-card reveal">
+                    <div class="skill-icon">09</div>
+                    <h3>Critical Thinking</h3>
+                    <p>
+                        Evaluating ideas and information carefully before
+                        reaching informed conclusions.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EDUCATION
+    ====================================================== -->
+
+    <section class="section education" id="education">
+
+        <div class="container">
+
+            <div class="section-header reveal">
+
+                <div class="section-label">
+                    Education
+                </div>
+
+                <h2 class="section-title">
+                    An academic journey built on determination.
+                </h2>
+
+                <p class="section-description">
+                    From primary education to university, every stage has
+                    contributed to the person I am becoming.
+                </p>
+
+            </div>
+
+
+            <div class="timeline">
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-dot"></div>
+
+                    <span class="timeline-year">
+                        Primary Education
+                    </span>
+
+                    <h3>
+                        Tonga Omonuri Primary School
+                    </h3>
+
+                    <h4>
+                        Kenya Certificate of Primary Education
+                    </h4>
+
+                    <p>
+                        Completed primary education and achieved a strong
+                        academic foundation.
+                    </p>
+
+                    <span class="achievement">
+                        KCPE: 374 Marks
+                    </span>
+
+                </div>
+
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-dot"></div>
+
+                    <span class="timeline-year">
+                        Secondary Education
+                    </span>
+
+                    <h3>
+                        Moi High School Gesusu
+                    </h3>
+
+                    <h4>
+                        Kenya Certificate of Secondary Education
+                    </h4>
+
+                    <p>
+                        Successfully completed secondary education with a
+                        strong academic performance.
+                    </p>
+
+                    <span class="achievement">
+                        KCSE: B+
+                    </span>
+
+                </div>
+
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-dot"></div>
+
+                    <span class="timeline-year">
+                        Current
+                    </span>
+
+                    <h3>
+                        University of Eldoret
+                    </h3>
+
+                    <h4>
+                        Current University Student
+                    </h4>
+
+                    <p>
+                        Currently pursuing higher education and developing
+                        knowledge, skills and professional capabilities.
+                    </p>
+
+                    <span class="achievement">
+                        Program: [Bsc. Agricultural Extension and Education]
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EXPERIENCE
+    ====================================================== -->
+
+    <section class="section experience" id="experience">
+
+        <div class="container">
+
+            <div class="section-header reveal">
+
+                <div class="section-label">
+                    Experience
+                </div>
+
+                <h2 class="section-title">
+                    Experience beyond a job title.
+                </h2>
+
+                <p class="section-description">
+                    Maturity brings perspectives and responsibilities that
+                    complement academic knowledge.
+                </p>
+
+            </div>
+
+
+            <div class="experience-grid">
+
+                <div class="experience-card reveal">
+
+                    <span>01 / Professional</span>
+
+                    <h3>
+                        Professional Experience
+                    </h3>
+
+                    <p>
+                        Volunteer work, internships, part-time jobs and other
+                    </p>
+
+                </div>
+
+
+                <div class="experience-card reveal">
+
+                    <span>02 / Leadership</span>
+
+                    <h3>
+                        Leadership & Responsibility
+                    </h3>
+
+                    <p>
+                        Team leadership, peer colaboration,Project coordination and many more.
+            
+                    </p>
+
+                </div>
+
+
+                <div class="experience-card reveal">
+
+                    <span>03 / Life Experience</span>
+
+                    <h3>
+                        Maturity as an Asset
+                    </h3>
+
+                    <p>
+                        Life experience can strengthen responsibility,
+                        decision-making, adaptability, resilience and
+                        long-term thinking.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROJECTS
+    ====================================================== -->
+
+    <section class="section projects" id="projects">
+
+        <div class="container">
+
+            <div class="section-header reveal">
+
+                <div class="section-label">
+                    Projects
+                </div>
+
+                <h2 class="section-title">
+                    Ideas into meaningful work.
+                </h2>
+
+                <p class="section-description">
+                    A space for academic, personal and future projects.
+                    
+                </p>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+                <article class="project-card reveal">
+
+                    <div class="project-image">
+                        &lt;/&gt;
+                    </div>
+
+                    <div class="project-content">
+
+                        <span class="project-tag">
+                            Suggested Academic Project
+                        </span>
+
+                        <h3>
+                            Agricultural WhatsApp Extension program
+                        </h3>
+
+                        <p>
+                            For sharing agricultural information and advice with farmers
+                    
+                        </p>
+
+                        <a href="#" class="project-link">
+                            Add Project →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project-card reveal">
+
+                    <div class="project-image">
+                        ◇
+                    </div>
+
+                    <div class="project-content">
+
+                        <span class="project-tag">
+                            Suggested Personal Project
+                        </span>
+
+                        <h3>
+                            Smart irrigation System for Small-scale Farmers
+                        </h3>
+
+                        <p>
+                            A professional digital platform showcasing
+                            innovative solutions for efficient irrigation
+                        </p>
+
+                        <a href="#" class="project-link">
+                            Add Project →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project-card reveal">
+
+                    <div class="project-image">
+                        ✦
+                    </div>
+
+                    <div class="project-content">
+
+                        <span class="project-tag">
+                            Future Project
+                        </span>
+
+                        <h3>
+                            School  Agricultural Demonstartion Garden
+                        </h3>
+
+                        <p>
+                            A practical learning space for students to apply
+                            agricultural knowledge and skills
+                        </p>
+
+                        <a href="#" class="project-link">
+                            Add Project →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
+
+    <section class="section contact" id="contact">
+
+        <div class="container">
+
+            <div class="section-header reveal">
+
+                <div class="section-label">
+                    Contact
+                </div>
+
+                <h2 class="section-title">
+                    Let's connect.
+                </h2>
+
+                <p class="section-description">
+                    Whether for academic collaboration, professional
+                    opportunities or meaningful conversations, feel free
+                    to get in touch.
+                </p>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+                <div class="contact-info reveal">
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            @
+                        </div>
+
+                        <div>
+                            <h4>Email</h4>
+                            <p>[nuffymzazi74@gmail.com]</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            ☎
+                        </div>
+
+                        <div>
+                            <h4>Phone</h4>
+                            <p>[0757745865]</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            ●
+                        </div>
+
+                        <div>
+                            <h4>Location</h4>
+                            <p>[Eldoret]</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            in
+                        </div>
+
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>[LinkedIn Profile]</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            GH
+                        </div>
+
+                        <div>
+                            <h4>GitHub</h4>
+                            <p>[GitHub Profile]</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <form class="contact-form reveal" id="contactForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Your Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label for="subject">
+                                Subject
+                            </label>
+
+                            <input
+                                type="text"
+                                id="subject"
+                                placeholder="What would you like to discuss?"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label for="message">
+                                Message
+                            </label>
+
+                            <textarea
+                                id="message"
+                                placeholder="Write your message..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">
+                        Send Message →
+                    </button>
+
+                    <div class="form-message" id="formMessage">
+                        Thank you! Your message has been prepared.
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <p>
+                © <span id="year"></span> Ratandi Dravin Nyagechi.
+                All rights reserved.
+            </p>
+
+            <div class="social-links">
+
+                <a href="#" aria-label="LinkedIn">
+                    in
+                </a>
+
+                <a href="#" aria-label="GitHub">
+                    GH
+                </a>
+
+                <a href="#" aria-label="Email">
+                    @
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- BACK TO TOP -->
+
+    <button class="back-top" id="backTop" aria-label="Back to top">
+        ↑
+    </button>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* =====================================================
+           PRELOADER
+        ===================================================== */
+
+        window.addEventListener("load", function () {
+
+            const preloader = document.getElementById("preloader");
+
+            setTimeout(() => {
+                preloader.classList.add("hidden");
+            }, 500);
+
+        });
+
+
+        /* =====================================================
+           MOBILE NAVIGATION
+        ===================================================== */
+
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", () => {
+
+            navLinks.classList.toggle("open");
+
+            if (navLinks.classList.contains("open")) {
+                menuToggle.textContent = "✕";
+            } else {
+                menuToggle.textContent = "☰";
+            }
+
+        });
+
+
+        /* Close menu after clicking a link */
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("open");
+                menuToggle.textContent = "☰";
+
+            });
+
+        });
+
+
+        /* =====================================================
+           STICKY HEADER
+        ===================================================== */
+
+        const header = document.getElementById("header");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+
+        });
+
+
+        /* =====================================================
+           ACTIVE NAVIGATION
+        ===================================================== */
+
+        const sections = document.querySelectorAll("section[id]");
+        const navItems = document.querySelectorAll(".nav-links a");
+
+        function updateActiveNavigation() {
+
+            let currentSection = "";
+
+            sections.forEach(section => {
+
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.offsetHeight;
+
+                if (
+                    window.scrollY >= sectionTop &&
+                    window.scrollY < sectionTop + sectionHeight
+                ) {
+                    currentSection = section.getAttribute("id");
+                }
+
+            });
+
+            navItems.forEach(link => {
+
+                link.classList.remove("active");
+
+                if (link.getAttribute("href") === "#" + currentSection) {
+                    link.classList.add("active");
+                }
+
+            });
+
+        }
+
+        window.addEventListener("scroll", updateActiveNavigation);
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ===================================================== */
+
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("visible");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+        revealElements.forEach(element => {
+
+            revealObserver.observe(element);
+
+        });
+
+
+        /* =====================================================
+           CONTACT FORM
+        ===================================================== */
+
+        const contactForm = document.getElementById("contactForm");
+        const formMessage = document.getElementById("formMessage");
+
+        contactForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const subject = document.getElementById("subject").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            if (!name || !email || !subject || !message) {
+
+                formMessage.style.display = "block";
+                formMessage.textContent =
+                    "Please complete all fields.";
+
+                return;
+
+            }
+
+            formMessage.style.display = "block";
+
+            formMessage.textContent =
+                "Thank you, " + name +
+                ". Your message has been received.";
+
+            contactForm.reset();
+
+        });
+
+
+        /* =====================================================
+           BACK TO TOP
+        ===================================================== */
+
+        const backTop = document.getElementById("backTop");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 500) {
+                backTop.classList.add("show");
+            } else {
+                backTop.classList.remove("show");
+            }
+
+        });
+
+
+        backTop.addEventListener("click", () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+
+        /* =====================================================
+           CURRENT YEAR
+        ===================================================== */
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
+```
